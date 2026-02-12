@@ -43,6 +43,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "4bd4f1f3-758a-40b2-8cd0-cb20029c0290"
+      }
+    },
+    "owner": "starry24"
   }
 }
