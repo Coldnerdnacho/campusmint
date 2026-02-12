@@ -1,0 +1,16 @@
+Campus INR Token - CampusMint Hackathon
+==================================================
+
+Asset ID: 755378709
+
+AlgoExplorer Link:
+https://testnet.algoexplorer.io/asset/755378709
+
+Token Details:
+- Name: Campus INR
+- Unit: CINR
+- Supply: 1,000,000 CINR
+- Decimals: 2
+
+==================================================
+SHARE THIS ASSET ID WITH YOUR ENTIRE TEAM!

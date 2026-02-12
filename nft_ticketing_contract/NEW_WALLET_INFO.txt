@@ -1,0 +1,13 @@
+ALGORAND TESTNET WALLET
+======================================================================
+
+Address:
+LPM55WTEFFP6UGM7JHKMIFC5GXHJOFQLDKOFSAPQRMHRCAHYLQCHQJBY6I
+
+Private Key:
+axsZ3M+70xcoClM3+kDCWp27fphrBvkr/XDn3rxUNrFb2d7aZClf6hmfSdTEFF01zpcWCxqcWQHwiw8RAPhcBA==
+
+25-Word Mnemonic:
+hope good unlock rude polar album eyebrow fantasy eight advance gentle stick jaguar cabbage fresh all left visa reveal unveil keen news meadow absent current
+
+======================================================================
