@@ -433,7 +433,7 @@ MIT License. See [LICENSE.md](LICENSE.md)
 
 ## Acknowledgments
 
-Built during [Hackathon Name] by students at [University Name].
+Built during Hackspiration by students at KJSSE.
 
 Powered by Algorand testnet and open source tools.
 
