@@ -1,0 +1,70 @@
+#pragma version 8
+txn ApplicationID
+int 0
+==
+bnz main_l10
+txn OnCompletion
+int OptIn
+==
+bnz main_l9
+txn OnCompletion
+int NoOp
+==
+bnz main_l4
+err
+main_l4:
+txna ApplicationArgs 0
+byte "deposit"
+==
+bnz main_l8
+txna ApplicationArgs 0
+byte "withdraw"
+==
+bnz main_l7
+err
+main_l7:
+txn Sender
+txn Sender
+byte "owner"
+app_local_get
+==
+assert
+global LatestTimestamp
+txn Sender
+byte "unlock"
+app_local_get
+>=
+assert
+txn Sender
+byte "amount"
+int 0
+app_local_put
+int 1
+return
+main_l8:
+txn Sender
+byte "owner"
+txn Sender
+app_local_put
+txn Sender
+byte "amount"
+txna ApplicationArgs 1
+btoi
+app_local_put
+txn Sender
+byte "unlock"
+txna ApplicationArgs 2
+btoi
+app_local_put
+int 1
+return
+main_l9:
+txn Sender
+byte "amount"
+int 0
+app_local_put
+int 1
+return
+main_l10:
+int 1
+return

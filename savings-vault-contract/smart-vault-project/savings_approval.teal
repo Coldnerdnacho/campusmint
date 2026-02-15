@@ -1,0 +1,149 @@
+#pragma version 8
+txn ApplicationID
+int 0
+==
+bnz main_l14
+txn OnCompletion
+int OptIn
+==
+bnz main_l13
+txn OnCompletion
+int NoOp
+==
+bnz main_l4
+err
+main_l4:
+txna ApplicationArgs 0
+byte "create"
+==
+bnz main_l12
+txna ApplicationArgs 0
+byte "deposit"
+==
+bnz main_l11
+txna ApplicationArgs 0
+byte "withdraw"
+==
+bnz main_l10
+txna ApplicationArgs 0
+byte "emergency"
+==
+bnz main_l9
+err
+main_l9:
+txn Sender
+txn Sender
+byte "owner"
+app_local_get
+==
+assert
+txna ApplicationArgs 1
+sha256
+txn Sender
+byte "emergency_hash"
+app_local_get
+==
+assert
+global LatestTimestamp
+txn Sender
+byte "created_at"
+app_local_get
+int 604800
++
+>=
+assert
+txn Sender
+byte "total"
+int 0
+app_local_put
+int 1
+return
+main_l10:
+txn Sender
+txn Sender
+byte "owner"
+app_local_get
+==
+assert
+global LatestTimestamp
+txn Sender
+byte "unlock_time"
+app_local_get
+>=
+assert
+txn Sender
+byte "total"
+int 0
+app_local_put
+int 1
+return
+main_l11:
+txn Sender
+txn Sender
+byte "owner"
+app_local_get
+==
+assert
+txn Sender
+byte "total"
+txn Sender
+byte "total"
+app_local_get
+txna ApplicationArgs 1
+btoi
++
+app_local_put
+txn Sender
+byte "last_deposit"
+global LatestTimestamp
+app_local_put
+int 1
+return
+main_l12:
+txn Sender
+byte "owner"
+txn Sender
+app_local_put
+txn Sender
+byte "total"
+int 0
+app_local_put
+txn Sender
+byte "goal"
+txna ApplicationArgs 1
+btoi
+app_local_put
+txn Sender
+byte "unlock_time"
+txna ApplicationArgs 2
+btoi
+app_local_put
+txn Sender
+byte "cause"
+txna ApplicationArgs 3
+app_local_put
+txn Sender
+byte "emergency_hash"
+txna ApplicationArgs 4
+sha256
+app_local_put
+txn Sender
+byte "created_at"
+global LatestTimestamp
+app_local_put
+txn Sender
+byte "last_deposit"
+int 0
+app_local_put
+int 1
+return
+main_l13:
+txn Sender
+byte "total"
+int 0
+app_local_put
+int 1
+return
+main_l14:
+int 1
+return
